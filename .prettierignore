@@ -3,13 +3,3 @@ dist/**
 release/**
 public/**
 docs/**
-.vscode/**
-.husky/**
-LICENSE
-yarn.lock
-pnpm-lock.yaml
-README.md
-.prettierignore
-.prettierrc
-.eslintignore
-.gitignore
