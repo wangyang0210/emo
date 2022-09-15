@@ -1,4 +1,5 @@
 ## 2022.09.12 - TODO
+-   集成commitlint
 -   axios封装
 -   api接口梳理封装
 ## 2022.09.04 - int
