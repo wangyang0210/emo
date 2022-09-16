@@ -19,6 +19,7 @@ specifiers:
   eslint-plugin-vue: ^9.4.0
   husky: ^8.0.1
   lint-staged: ^13.0.3
+  mockjs: ^1.1.0
   prettier: ^2.7.1
   typescript: '*'
   vite: ^3.0.9
@@ -47,6 +48,7 @@ devDependencies:
   eslint-plugin-vue: 9.4.0_eslint@8.23.0
   husky: 8.0.1
   lint-staged: 13.0.3
+  mockjs: 1.1.0
   prettier: 2.7.1
   typescript: 4.8.2
   vite: 3.0.9
@@ -1375,7 +1377,7 @@ packages:
       delayed-stream: 1.0.0
 
   /commander/2.9.0:
-    resolution: {integrity: sha1-nJkJQXbhIkDLItbFFGCYQA/g99Q=}
+    resolution: {integrity: sha512-bmkUukX8wAOjHdN26xj5c4ctEV22TQ7dQYhSmuckKhToXrkUn0iIaolHdIxYYqD55nhpSPA9zPQ1yP57GdXP2A==}
     engines: {node: '>= 0.6.x'}
     dependencies:
       graceful-readlink: 1.0.1
@@ -3554,6 +3556,13 @@ packages:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
     hasBin: true
+    dev: true
+
+  /mockjs/1.1.0:
+    resolution: {integrity: sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==}
+    hasBin: true
+    dependencies:
+      commander: 9.4.0
     dev: true
 
   /ms/2.0.0:
