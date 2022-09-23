@@ -104,17 +104,6 @@ export default function request(arr: IAxiosData) {
                         reject(response.data)
                         return
                     }
-                    // if (response.data.code === '401') {
-                    //   Message({
-                    //     type: 'error',
-                    //     message: response.data.message
-                    //   });
-                    //   reject(response.data);
-                    //   remove('token');
-                    //   router.push('/login');
-                    //   return;
-                    // }
-
                     resolve(response.data)
                 } else {
                     ElMessage({
