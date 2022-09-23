@@ -13,7 +13,7 @@ module.exports = {
     parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
-        project: ['tsconfig.jsong']
+        project: ['tsconfig.json']
     },
     plugins: ['vue'],
     ignorePatterns: ['node_modules/**', 'dist/**', 'release/**', 'public/**', 'docs/**'],
