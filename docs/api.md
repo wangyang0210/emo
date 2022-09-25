@@ -1,5 +1,7 @@
 https://api.cnblogs.com/help#top
 
+19ccdb18-52fb-4703-99c3-2bf7fb2efad4
+
 oauth: {
         authority: 'https://oauth.cnblogs.com',
         tokenEndpoint: '/connect/token',

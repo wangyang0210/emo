@@ -41,6 +41,7 @@
         "lint-staged": "^13.0.3",
         "mockjs": "^1.1.0",
         "prettier": "^2.7.1",
+        "randomstring": "^1.2.2",
         "typescript": "*",
         "vite": "^3.0.9",
         "vite-plugin-electron": "^0.9.2",
