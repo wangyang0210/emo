@@ -1,5 +1,7 @@
-function domReady(condition: DocumentReadyState[] = ['complete', 'interactive']) {
-    return new Promise((resolve) => {
+async function domReady(
+    condition: DocumentReadyState[] = ['complete', 'interactive']
+): Promise<boolean> {
+    return await new Promise((resolve) => {
         if (condition.includes(document.readyState)) {
             resolve(true)
         } else {
@@ -14,12 +16,12 @@ function domReady(condition: DocumentReadyState[] = ['complete', 'interactive'])
 
 const safeDOM = {
     append(parent: HTMLElement, child: HTMLElement) {
-        if (!Array.from(parent.children).find((e) => e === child)) {
+        if (Array.from(parent.children).find((e) => e === child) == null) {
             return parent.appendChild(child)
         }
     },
     remove(parent: HTMLElement, child: HTMLElement) {
-        if (Array.from(parent.children).find((e) => e === child)) {
+        if (Array.from(parent.children).find((e) => e === child) != null) {
             return parent.removeChild(child)
         }
     }
@@ -31,35 +33,34 @@ const safeDOM = {
  * https://projects.lukehaas.me/css-loaders
  * https://matejkustec.github.io/SpinThatShit
  */
-function useLoading() {
+function useLoading(): { appendLoading?: Function | any; removeLoading: Function } {
     const className = `loaders-css__square-spin`
     const styleContent = `
-@keyframes square-spin {
-  25% { transform: perspective(100px) rotateX(180deg) rotateY(0); }
-  50% { transform: perspective(100px) rotateX(180deg) rotateY(180deg); }
-  75% { transform: perspective(100px) rotateX(0) rotateY(180deg); }
-  100% { transform: perspective(100px) rotateX(0) rotateY(0); }
-}
-.${className} > div {
-  animation-fill-mode: both;
-  width: 50px;
-  height: 50px;
-  background: #fff;
-  animation: square-spin 3s 0s cubic-bezier(0.09, 0.57, 0.49, 0.9) infinite;
-}
-.app-loading-wrap {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #282c34;
-  z-index: 9;
-}
-    `
+        @keyframes square-spin {
+        25% { transform: perspective(100px) rotateX(180deg) rotateY(0); }
+        50% { transform: perspective(100px) rotateX(180deg) rotateY(180deg); }
+        75% { transform: perspective(100px) rotateX(0) rotateY(180deg); }
+        100% { transform: perspective(100px) rotateX(0) rotateY(0); }
+        }
+        .${className} > div {
+        animation-fill-mode: both;
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        animation: square-spin 3s 0s cubic-bezier(0.09, 0.57, 0.49, 0.9) infinite;
+        }
+        .app-loading-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #282c34;
+        z-index: 9;
+        }`
     const oStyle = document.createElement('style')
     const oDiv = document.createElement('div')
 
@@ -83,7 +84,7 @@ function useLoading() {
 // ----------------------------------------------------------------------
 
 const { appendLoading, removeLoading } = useLoading()
-domReady().then(appendLoading)
+void domReady().then(appendLoading)
 
 window.onmessage = (ev) => {
     ev.data.payload === 'removeLoading' && removeLoading()

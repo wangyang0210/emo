@@ -6,19 +6,19 @@ enum Api {
 }
 
 export function getAuthorize(data: any): any {
-    return request({
-        url: Api.getToken,
-        headers: { 'content-type': 'application/x-www-form-urlencoded' },
-        method: 'POST',
+    return request(
+        Api.getToken,
+        { 'content-type': 'application/x-www-form-urlencoded' },
+        'POST',
         data
-    })
+    )
 }
 
-export function getToken(data: any): any {
-    return request({
-        url: Api.getToken,
-        headers: { 'content-type': 'application/x-www-form-urlencoded' },
-        method: 'POST',
-        data
-    })
-}
+// export function getToken(data: any): any {
+//     return request({
+//         url: Api.getToken,
+//         headers: { 'content-type': 'application/x-www-form-urlencoded' },
+//         method: 'POST',
+//         data
+//     })
+// }
